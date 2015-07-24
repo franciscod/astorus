@@ -59,7 +59,16 @@ for candidate_source in candidate_programs:
     #print(candidate_source)
     #print("")
     #print("")
-    exec(candidate_source)
+
+    try:
+        exec(candidate_source)
+    except:
+        print("Error executing this candidate code:")
+        print(candidate_source)
+        print()
+        #open('/tmp/astorus-dump', 'w').write(candidate_source)
+        #print(astor.dump(astor.parsefile('/tmp/astorus-dump')))
+        continue
 
     try:
         exec(test_source)
