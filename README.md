@@ -10,7 +10,8 @@ There is also an example which targets both of these errors and produces *Syntax
 ## Installing
 
 - Clone the repo and cd:
- ```
+
+```
 $ git clone git@github.com:franciscod/astorus.git && cd astorus
 ```
 - Create a virtualenv, activate it and install the dependency with pip:
@@ -22,7 +23,7 @@ $ pip install -r requirements.txt
 
 ## Running
 
-- Enter the virtualenv (maybe you're already on it if you just installed it
+- Enter the virtualenv (maybe you're already on it if you just installed it)
 - Go to an example and run the `shuffler` program:
 ```
 $ . venv/bin/activate
