@@ -7,13 +7,31 @@ The provided examples target *off by one* errors and *bad condition* errors (neg
 
 There is also an example which targets both of these errors and produces *SyntaxError*s, which was intended to get solved at the live demo in the course that had to be shortened :(
 
-## Usage
+## Installing
 
-- Clone the repo (`git clone git@github.com:franciscod/astorus.git`) and `cd astorus`
-- Create a virtualenv (`virtualenv venv`), activate it (`. venv/bin/activate`) and install the dependency with pip (`pip install -r requirements.txt`)
-- Go to an example (`cd astorus/examples/offbyone`) and run the `shuffler` program: `python ../../shuffler.py`
+- Clone the repo and cd:
+ ```
+$ git clone git@github.com:franciscod/astorus.git && cd astorus
+```
+- Create a virtualenv, activate it and install the dependency with pip:
+```
+$ virtualenv venv
+$ . venv/bin/activate
+$ pip install -r requirements.txt
+```
+
+## Running
+
+- Enter the virtualenv (maybe you're already on it if you just installed it
+- Go to an example and run the `shuffler` program:
+```
+$ . venv/bin/activate
+$ cd astorus/examples/offbyone
+$ python ../../shuffler.py
+```
 
 ## How it works 
+
 The core is implemented at `shuffler.py`.
 
 Each example has a main implementation, some tests (used as oracle) and two walk implementations:
@@ -21,8 +39,10 @@ Each example has a main implementation, some tests (used as oracle) and two walk
  - `BoomWalk` is ran every time, with a number from 0 to 2^count as argument (this tries to modify all combinations of node modifications)
 
 
-## Improvements
+## Caveats
 
-It would be really cool to extract the walkers from the examples, so you maybe have a dozen of walkers with their strategies and you can use them all for any buggy code.
+The generated patches are based on the `normalized` source after the source->ast->source roundtrip, so it loses the comments and the formatting comes a little messed up.
 
 Also, it's now bruteforcing the whole space so it's slow on non-trivial programs.
+
+It would be really cool to extract the walkers from the examples, so you maybe have a dozen of walkers with their strategies and you can use them all for any buggy code.
